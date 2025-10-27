@@ -31,12 +31,10 @@ const monitorConfig = {
 const config = monitorConfig[ENV];
 
 console.log(`
-========================================================
 🚀 DevOps Simulator — Unified Aurora Monitor
 Mode: ${ENV.toUpperCase()}
 AI Mode: ${config.aiMode ? "ON" : "OFF"}
 Monitoring Interval: ${config.interval}ms
-========================================================
 `);
 
 function simulateMetric(label) {
