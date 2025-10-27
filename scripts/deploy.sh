@@ -1,8 +1,6 @@
 #!/bin/bash
-# ==============================================
 # DevOps Simulator: Intelligent Deployment Engine
 # Phase: Unified Deployment (v3.1.0)
-# ==============================================
 
 set -euo pipefail
 
@@ -27,9 +25,7 @@ if ! command -v npm &> /dev/null; then
     exit 1
 fi
 
-# ==============================================
 # DEVELOPMENT DEPLOYMENT
-# ==============================================
 if [ "$DEPLOY_ENV" = "development" ]; then
     echo "🧩 Initiating Development Mode Setup..."
     APP_PORT=3000
@@ -55,10 +51,7 @@ if [ "$DEPLOY_ENV" = "development" ]; then
     echo "Logs stored at: ./logs/devops-${TIMESTAMP}.log"
     echo "----------------------------------------------"
 
-
-# ==============================================
 # EXPERIMENTAL / AI DEPLOYMENT
-# ==============================================
 elif [ "$DEPLOY_ENV" = "experimental" ]; then
     echo "🤖 Initiating AI-Powered Multi-Cloud Deployment..."
     DEPLOY_CLOUDS=("aws" "azure" "gcp" "digitalocean")
@@ -90,9 +83,7 @@ elif [ "$DEPLOY_ENV" = "experimental" ]; then
     echo "Multi-Cloud Console ➜ https://control.devops-sim.io"
     echo "----------------------------------------------"
 
-# ==============================================
 # UNKNOWN ENVIRONMENT HANDLER
-# ==============================================
 else
     echo "❌ Invalid environment '$DEPLOY_ENV'"
     echo "Usage: ./scripts/deploy.sh [development | experimental]"
