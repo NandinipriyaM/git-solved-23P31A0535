@@ -1,21 +1,59 @@
+# Unified Application Configuration
 application:
   name: DevOpsSimulator
-  version: 1.0.0
+  version: 3.0.0
   environment: production
-  
+  experimental_mode: true
+
 server:
   host: 0.0.0.0
-  port: 8080
+  ports:
+    - 8080        # Production
+    - 3000        # Development
+    - 9000        # Experimental
   ssl_enabled: true
-  
+  multi_port: [8080, 3000, 9000]
+
 logging:
-  level: INFO
-  format: json
-  
-# Development configuration (enabled via environment variable)
+  level: TRACE
+  format: structured
+  output: /var/log/devops-simulator.log
+  ai_analysis: enabled
+
+database:
+  host: cluster.example.com
+  port: 5432
+  name: devops_unified
+  replication: enabled
+  distributed: true
+
+features:
+  auto_scaling: ai-optimized
+  load_balancer: enabled
+  backup_enabled: true
+  chaos_engineering: enabled
+  rollback_recovery: true
+
+ai_features:
+  predictive_scaling: true
+  anomaly_detection: true
+  auto_optimization: true
+  model_version: "v2.1.0"
+
+cloud_providers:
+  - aws
+  - azure
+  - gcp
+  - digitalocean
+
+security:
+  zero_trust: enabled
+  encryption: AES-256
+  audit_logging: comprehensive
+
 development:
-  enabled: false
+  enabled: true
   port: 3000
-  hot_reload: false
-  debug_mode: false
-  mock_apis: false
+  hot_reload: true
+  debug_mode: true
+  mock_apis: true
